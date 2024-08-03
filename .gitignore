@@ -1,0 +1,20 @@
+.settings
+Application/
+Debug/
+Drivers/
+STM32CubeIDE/
+.cproject
+.DS_Store
+.mxproject
+.project
+makefile
+*.xml
+Prac1.ioc
+startup_stm32f051x8.s
+STM32F032x.svd
+STM32Make.make
+EEE3096S 2024 Practical 1 template.pdf
+EEE3096S 2024 Practical 1.docx
+openocd.cfg
+STM32F031x.svd
+STM32F051C6Tx_FLASH.ld
