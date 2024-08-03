@@ -103,7 +103,6 @@ int main(void)
 
   // TODO: Start timer TIM16
   HAL_TIM_Base_Start_IT(&htim16);
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -115,8 +114,24 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
     // TODO: Check pushbuttons to change timer delay
-    
-    
+
+    // Check if PA0 is pressed
+    if (!(GPIOA->IDR & GPIO_IDR_0)) {
+        htim16.Instance->ARR = 500-1;
+        continue;
+    }
+
+    // Check if PA1 is pressed
+    if (!(GPIOA->IDR & GPIO_IDR_1)) {
+        htim16.Instance->ARR = 2000-1;
+        continue;
+    }
+
+    // Check if PA2 is pressed
+    if (!(GPIOA->IDR & GPIO_IDR_2)) {
+        htim16.Instance->ARR = 1000-1;
+        continue;
+    }
 
   }
   /* USER CODE END 3 */
@@ -395,8 +410,6 @@ void TIM16_IRQHandler(void)
     }
   }
 	// print something
-
-  
 }
 
 /* USER CODE END 4 */
