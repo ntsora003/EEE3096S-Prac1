@@ -18,3 +18,4 @@ EEE3096S 2024 Practical 1.docx
 openocd.cfg
 STM32F031x.svd
 STM32F051C6Tx_FLASH.ld
+.vscode/settings.json

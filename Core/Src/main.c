@@ -45,6 +45,18 @@ TIM_HandleTypeDef htim16;
 /* USER CODE BEGIN PV */
 // TODO: Define input variables
 
+uint8_t LED_PATTERN_1 = 0b11101001;
+uint8_t LED_PATTERN_2 = 0b11010010;
+uint8_t LED_PATTERN_3 = 0b10100100;
+uint8_t LED_PATTERN_4 = 0b01001000;
+uint8_t LED_PATTERN_5 = 0b10010000;
+uint8_t LED_PATTERN_6 = 0b00100000;
+uint8_t LED_PATTERN_7 = 0b01000000;
+uint8_t LED_PATTERN_8 = 0b10000000;
+uint8_t LED_PATTERN_9 = 0b00000000;
+
+uint8_t patternIndex = 1;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -90,6 +102,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   // TODO: Start timer TIM16
+  HAL_TIM_Base_Start_IT(&htim16);
 
   /* USER CODE END 2 */
 
@@ -324,6 +337,63 @@ void TIM16_IRQHandler(void)
 	HAL_TIM_IRQHandler(&htim16);
 
 	// TODO: Change LED pattern
+
+	switch(patternIndex){
+
+    case 1:{
+      GPIOB->ODR = LED_PATTERN_1;
+      patternIndex++;
+      break;
+    }
+
+    case 2:{
+      GPIOB->ODR = LED_PATTERN_2;
+      patternIndex++;
+      break;
+    }
+
+    case 3:{
+      GPIOB->ODR = LED_PATTERN_3;
+      patternIndex++;
+      break;
+    }
+
+    case 4:{
+      GPIOB->ODR = LED_PATTERN_4;
+      patternIndex++;
+      break;
+    }
+
+    case 5:{
+      GPIOB->ODR = LED_PATTERN_5;
+      patternIndex++;
+      break;
+    }
+
+    case 6:{
+      GPIOB->ODR = LED_PATTERN_6;
+      patternIndex++;
+      break;
+    }
+
+    case 7:{
+      GPIOB->ODR = LED_PATTERN_7;
+      patternIndex++;
+      break;
+    }
+
+    case 8:{
+      GPIOB->ODR = LED_PATTERN_8;
+      patternIndex++;
+      break;
+    }
+
+    case 9:{
+      GPIOB->ODR = LED_PATTERN_9;
+      patternIndex = 1;
+      break;
+    }
+  }
 	// print something
 
   
