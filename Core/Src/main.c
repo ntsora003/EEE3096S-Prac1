@@ -117,22 +117,27 @@ int main(void)
 
     // Check if PA0 is pressed
     if (!(GPIOA->IDR & GPIO_IDR_0)) {
-        htim16.Instance->ARR = 500-1;
+        TIM16->ARR = 500-1;
         continue;
     }
 
     // Check if PA1 is pressed
     if (!(GPIOA->IDR & GPIO_IDR_1)) {
-        htim16.Instance->ARR = 2000-1;
+        TIM16->ARR = 2000-1;
         continue;
     }
 
     // Check if PA2 is pressed
     if (!(GPIOA->IDR & GPIO_IDR_2)) {
-        htim16.Instance->ARR = 1000-1;
+        TIM16->ARR = 1000-1;
         continue;
     }
 
+    // Check if PA3 is pressed
+    if (!(GPIOA->IDR & GPIO_IDR_3)) {
+        patternIndex = 1;
+        GPIOB->ODR = LED_PATTERN_1;
+    }
   }
   /* USER CODE END 3 */
 }
